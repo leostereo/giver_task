@@ -66,8 +66,12 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 ## Project feartures:
-Backend local roles
+Admin dashboard
+    Boostrap - Niceadmin , break into blade components.
 
+PWA route for PWA application
+
+API backend for PWA.
 
 ## Install
 
@@ -76,4 +80,26 @@ Backend local roles
 desde el workspace
 
 Laravel Breeze para authenticacion web local.
+composer require laravel/breeze:1.9.2
+php artisan breeze:install
+npm install
+npm install
+npm run dev
+npm run development #importante
 
+Coment the "register "routes from auth.php; to disable register.
+
+
+   60  npm install bootstrap
+   61  npm install sass
+   62  history 
+   63  npm install sass-loader
+
+edit file:
+
+
+npm install resolve-url-loader@^5.0.0 --save-dev --legacy-peer-deps
+npm run development
+
+
+php artisan make:model Report -mcr

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::middleware(['auth'])->group(function () {
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+Route::get('/charts', function () {
+    return view('charts');
+})->name('charts');
+
+
+Route::resource('report', ReportController::class);
+
+#Route::post('/report', [ReportController::class, 'create'] )->name('create_report');
+#Route::get('/report', [ReportController::class, 'show'] )->name('show_report');
+
+});
+
+
+require __DIR__.'/auth.php';
