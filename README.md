@@ -65,13 +65,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 
-## Project feartures:
-Admin dashboard
-    Boostrap - Niceadmin , break into blade components.
 
-PWA route for PWA application
-
-API backend for PWA.
 
 ## Install
 

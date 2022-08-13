@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
 
@@ -25,16 +26,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/charts', function () {
-    return view('charts');
-})->name('charts');
+Route::get('/charts', [ReportController::class, 'charts'])->name('charts');
 
 
 Route::resource('report', ReportController::class);
 
-#Route::post('/report', [ReportController::class, 'create'] )->name('create_report');
-#Route::get('/report', [ReportController::class, 'show'] )->name('show_report');
-
+Route::get('/features', function () {
+    return view('features');
+})->name('features');
 });
 
 

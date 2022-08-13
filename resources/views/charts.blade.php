@@ -99,7 +99,7 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Pie Chart</h5>
+                    <h5 class="card-title">No gender customers</h5>
 
                     <!-- Pie Chart -->
                     <canvas id="pieChart"
@@ -113,15 +113,14 @@
                                     labels: [
                                         'Red',
                                         'Blue',
-                                        'Yellow'
                                     ],
                                     datasets: [{
-                                        label: 'My First Dataset',
-                                        data: [300, 50, 100],
+                                        label: 'No gender customers',
+                                        data: [2, 10],
                                         backgroundColor: [
                                             'rgb(255, 99, 132)',
                                             'rgb(54, 162, 235)',
-                                            'rgb(255, 205, 86)'
+
                                         ],
                                         hoverOffset: 4
                                     }]

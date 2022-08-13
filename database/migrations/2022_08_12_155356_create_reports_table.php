@@ -15,6 +15,15 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->string('gender');
+            $table->string('ip_address');
+            $table->string('company');
+            $table->string('city');
+            $table->string('title');
+            $table->string('website');
             $table->timestamps();
         });
     }
