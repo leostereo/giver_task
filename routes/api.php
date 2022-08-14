@@ -18,8 +18,12 @@ Route::get('test',function(){
     return 'test';
 });
 
-Route::get('reports',function(){
-    return Report::all();
+Route::get('reports',function(Request $request){
+
+    $pagination = $request->pagination ?? 3;
+    $data = Report::paginate(intval($pagination));
+    return $data;
+
 });
 
 Route::get('charts',function(){

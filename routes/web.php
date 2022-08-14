@@ -38,3 +38,7 @@ Route::get('/features', function () {
 
 
 require __DIR__.'/auth.php';
+
+Route::get('{any}', function () {
+    return view('vue');
+})->where('any', '.*');
