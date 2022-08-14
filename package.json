@@ -29,8 +29,10 @@
     },
     "dependencies": {
         "bootstrap": "^5.2.0",
+        "chart.js": "^3.9.1",
         "laravel-vue-pagination": "^3.0.0",
         "sass": "^1.54.4",
-        "sass-loader": "^13.0.2"
+        "sass-loader": "^13.0.2",
+        "vue-chartjs": "^4.1.1"
     }
 }

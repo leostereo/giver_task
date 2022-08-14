@@ -171,8 +171,14 @@
                         role="tabpanel"
                         aria-labelledby="profile-tab"
                     >
-                        {{charts}}
-
+                        <Bar
+                            :chart-options="chartOptions"
+                            :chart-data="chartData"
+                            chart-id="bar"
+                            dataset-id-key="datasetIdKey"
+                            :width="500"
+                            :height="150"
+                        />
                     </div>
                 </div>
                 <!-- End Default Tabs -->
@@ -182,9 +188,30 @@
 </template>
 
 <script>
+import { Bar } from "vue-chartjs/legacy";
+import {
+    Chart as ChartJS,
+    Title,
+    Tooltip,
+    Legend,
+    BarElement,
+    CategoryScale,
+    LinearScale,
+} from "chart.js";
+
+ChartJS.register(
+    Title,
+    Tooltip,
+    Legend,
+    BarElement,
+    CategoryScale,
+    LinearScale
+);
+
 export default {
     data() {
         return {
+            api_url: process.env.MIX_API_URL,
             data: {},
             total: null,
             first_page_url: null,
@@ -195,14 +222,31 @@ export default {
             to: null,
             last_page: null,
             charts: {},
+            chartData: {
+                labels: ["total", "invalid email", "no gender", "no last name"],
+                datasets: [
+                    {
+                        label: "Wrong registers",
+                        backgroundColor: "#f87979",
+                        data: [0, 0, 0, 0],
+                    },
+                ],
+            },
+            chartOptions: {
+                responsive: true,
+                maintainAspectRatio: false,
+            },
         };
+    },
+    components: {
+        Bar,
     },
 
     beforeMount() {
         this.getCustomers();
     },
     methods: {
-        async getCustomers(url = "http://app.laravue/api/reports") {
+        async getCustomers(url = `${this.api_url}/reports`) {
             const res = await fetch(url);
             const data = await res.json();
             console.log(data);
@@ -218,12 +262,17 @@ export default {
             this.getCharts();
         },
 
-        async getCharts(){
-            const res = await fetch('http://app.laravue/api/charts');
+        async getCharts() {
+            const res = await fetch(`${this.api_url}/charts`);
             const data = await res.json();
             console.log(data);
             this.charts = data;
-        }
+            this.chartData.datasets[0].data[0] = data.total;
+            this.chartData.datasets[0].data[1] = data.invalidEmail;
+            this.chartData.datasets[0].data[2] = data.noGender;
+            this.chartData.datasets[0].data[3] = data.noLastName;
+            this.chartData.datasets[0].label = "Strange registers";
+        },
     },
 };
 </script>

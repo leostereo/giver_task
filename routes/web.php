@@ -26,8 +26,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/charts', [ReportController::class, 'charts'])->name('charts');
 
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');
+
+
+Route::get('/charts', [ReportController::class, 'charts'])->name('charts');
 
 Route::resource('report', ReportController::class);
 
