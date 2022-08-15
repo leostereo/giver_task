@@ -90,7 +90,7 @@ class ReportController extends Controller
 
         $contents = Storage::get('csv_files/'.$filename);
 
-        $file = fopen((storage_path().'/app/csv_files/customer_short.csv'), "r");
+        $file = fopen((storage_path().'/app/csv_files/customers.csv'), "r");
         $all_data = array();
 
 
@@ -113,10 +113,6 @@ class ReportController extends Controller
                             "website" =>  strlen($data[9]) > 60000 ? 'null' : $data[9],
 
                         ]);
-                                   //code...
-
-
-
 
 
                 } catch (\Throwable $th) {
