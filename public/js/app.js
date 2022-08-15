@@ -5329,7 +5329,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart.register(chart_js__WEBPACK_IMPORTED_
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      api_url: "http://app.laravue/api",
+      api_url: "https://whispering-hollows-70554.herokuapp.com/api",
       data: {},
       total: null,
       first_page_url: null,
