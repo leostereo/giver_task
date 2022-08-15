@@ -18,12 +18,12 @@ cp .env.example .env
 MIX_API_URL=http://app.laravue/api
 ```
 ## Adjust database credencials , for example:
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=laravue
-DB_USERNAME=root
-DB_PASSWORD=root
+- DB_CONNECTION=mysql
+- DB_HOST=mysql
+- DB_PORT=3306
+- DB_DATABASE=laravue
+- DB_USERNAME=root
+- DB_PASSWORD=root
 
 ## Bring the Laradock suite.
 ```console
@@ -32,7 +32,7 @@ cd laradock
 cp .env.example .env
 docker-compose up -d nginx mysql
 ```
-## Access to mysql container to create laravue db
+## Access to mysql container and create laravue db
 ```console
 create database laravue
 ```
@@ -45,6 +45,6 @@ php artisan migrate
 ```
 # Platform Usage
 ## Access to /admin for admin user
-login as admin@mail.com
+login as admin@mail.com with password `password`
 ## or for regular user:
-Access to / 
+Access to / , no login requiered.
