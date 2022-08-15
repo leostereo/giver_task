@@ -3,17 +3,18 @@
 <p align="center"><a href="https://vuejs.org" target="_blank" rel="noopener noreferrer"><img width="100" src="https://vuejs.org/images/logo.png" alt="Vue logo"></a></p>
 
 
-## Install
-
+## How to install
+# Clone the repo
 git clone https://github.com/leostereo/giver_task.git 
 
+# Prepare .env project.
 cd giver_task
-
 cp .env.example .env
-#adjust you api base url.
+
+# Create api base url:
 MIX_API_URL=http://app.laravue/api
 
-#adjust database , for ex:
+# Adjust database credencials , for example:
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -21,23 +22,23 @@ DB_DATABASE=laravue
 DB_USERNAME=root
 DB_PASSWORD=root
 
-#Laradock
+# Bring the Laradock suite.
 git submodule add https://github.com/Laradock/laradock.git
 cd laradock
 cp .env.example .env
 docker-compose up -d nginx mysql
 
-#access to mysql container to create laravue db
+# Access to mysql container to create laravue db
 create database laravue
 
-#access to workspace to install all dependencies and run migrations.
+# Access to workspace to install all dependencies and run migrations.
 composer install
 npm install
 npm run development
 php artisan migrate
 
-##Usage
-access to /admin
+## Platform Usage
+# Access to /admin for admin user
 login as admin@mail.com
-
-Access to / will bring vue view.
+# or for regular user:
+Access to / 
