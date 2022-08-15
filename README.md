@@ -36,12 +36,13 @@ docker-compose up -d nginx mysql
 ```console
 create database laravue
 ```
-## Access to workspace to install all dependencies and run migrations.
+## Access to workspace to install all dependencies, run migrations and seeders.
 ```console
 composer install
 npm install
 npm run development
 php artisan migrate
+php artisan db:seed
 ```
 # Platform Usage
 ## Access to /admin for admin user
